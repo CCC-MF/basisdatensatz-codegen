@@ -17,3 +17,14 @@ dotnet build
 ```
 
 Hierdurch wird aus der Schemadatei C#-Quellcode erzeugt und compiliert.
+
+## JDK build
+
+Im Unterverzeichnis `jdk` kann folgender Befehl ausgeführt werden:
+
+```
+./mvnw package
+```
+
+Hierdurch wird aus der Schemadatei Java-Quellcode im Paket
+`de.basisdatensatz` erzeugt und compiliert.
