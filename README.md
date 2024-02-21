@@ -28,3 +28,23 @@ Im Unterverzeichnis `jdk` kann folgender Befehl ausgeführt werden:
 
 Hierdurch wird aus der Schemadatei Java-Quellcode im Paket
 `de.basisdatensatz` erzeugt und compiliert.
+
+## Go
+
+Im Unterverzeichnis `golang` kann folgendes Bash-Script ausgeführt werden:
+
+```
+./generate.sh
+```
+
+Dies erzeugt im neu erstellten Unterordner `target` eine Go-Datei mit generierten Structs.
+
+## Rust
+
+Im Unterverzeichnis `rust` kann folgendes Bash-Script ausgeführt werden:
+
+```
+./generate.sh
+```
+
+Dies erzeugt im neu erstellten Unterordner `target` eine Rust-Datei mit generierten Structs.
