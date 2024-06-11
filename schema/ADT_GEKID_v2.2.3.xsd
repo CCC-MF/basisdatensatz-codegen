@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.gekid.de/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.gekid.de/namespace" targetNamespace="http://www.gekid.de/namespace" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.2.2 vom 30.11.2022">
+<xs:schema xmlns="http://www.gekid.de/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.gekid.de/namespace" targetNamespace="http://www.gekid.de/namespace" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.2.3 vom 18.10.2023">
 	<xs:element name="ADT_GEKID">
 		<xs:annotation>
 			<xs:documentation>Root element</xs:documentation>
@@ -423,106 +423,7 @@
 																						<xs:element name="OP_OPS_Version" minOccurs="0">
 																							<xs:simpleType>
 																								<xs:restriction base="xs:string">
-																									<xs:enumeration value="2004">
-																										<xs:annotation>
-																											<xs:documentation>Version 2004</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2005">
-																										<xs:annotation>
-																											<xs:documentation>Version 2005</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2006">
-																										<xs:annotation>
-																											<xs:documentation>Version 2006</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2007">
-																										<xs:annotation>
-																											<xs:documentation>Version 2007</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2008">
-																										<xs:annotation>
-																											<xs:documentation>Version 2008</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2009">
-																										<xs:annotation>
-																											<xs:documentation>Version 2009</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2010">
-																										<xs:annotation>
-																											<xs:documentation>Version 2010</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2011">
-																										<xs:annotation>
-																											<xs:documentation>Version 2011</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2012">
-																										<xs:annotation>
-																											<xs:documentation>Version 2012</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2013">
-																										<xs:annotation>
-																											<xs:documentation>Version 2013</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2014">
-																										<xs:annotation>
-																											<xs:documentation>Version 2014</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2015">
-																										<xs:annotation>
-																											<xs:documentation>Version 2015</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2016">
-																										<xs:annotation>
-																											<xs:documentation>Version 2016</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2017">
-																										<xs:annotation>
-																											<xs:documentation>Version 2017</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2018">
-																										<xs:annotation>
-																											<xs:documentation>Version 2018</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2019">
-																										<xs:annotation>
-																											<xs:documentation>Version 2019</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2020">
-																										<xs:annotation>
-																											<xs:documentation>Version 2020</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2021">
-																										<xs:annotation>
-																											<xs:documentation>Version 2021</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2022">
-																										<xs:annotation>
-																											<xs:documentation>Version 2022</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
-																									<xs:enumeration value="2023">
-																										<xs:annotation>
-																											<xs:documentation>Version 2023</xs:documentation>
-																										</xs:annotation>
-																									</xs:enumeration>
+																										<xs:pattern value="200[4-9]|20[12]\d"/>
 																								</xs:restriction>
 																							</xs:simpleType>
 																						</xs:element>
@@ -2794,6 +2695,11 @@
 								<xs:documentation>Hotfix 2.2.2 vom 30.11.2022 (ermöglicht ICD/OPS 2023)</xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
+						<xs:enumeration value="2.2.3">
+							<xs:annotation>
+								<xs:documentation>Hotfix 2.2.3 vom 18.10.2023 Erweiterung der zulässigen ICD-10-Versionen und OPS-Versionen über das Jahr 2023 hinaus</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
@@ -2851,117 +2757,18 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ICD_Version_Typ">
+		<xs:annotation>
+			<xs:documentation>
+				ICD 10 Version 2006 WHO (gültig bis 2010),
+				ICD 10 Version 2011 WHO (gültig bis 2012),
+				ICD 10 Version 2013 WHO (gültig bis 2015),
+				ICD 10 Version 2016 WHO (gültig bis 2018),
+				ICD 10 Version 2019 WHO (letzte Version, wird nur noch in Ausnahmefällen aktualisiert)
+				Sonstige, falls andere bzw. ältere Versionen verwendet werden
+			</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="10 2004 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2004 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2005 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2005 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2006 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2006 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2007 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2007 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2008 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2008 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2009 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2009 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2010 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2010 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2011 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2011 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2012 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2012 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2013 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2013 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2014 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2014 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2015 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2015 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2016 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2016 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2016 WHO">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2016 WHO</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2017 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2017 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2018 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2018 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2019 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2019 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2020 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2020 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2021 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2021 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2022 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2022 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="10 2023 GM">
-				<xs:annotation>
-					<xs:documentation>ICD 10 Version 2023 GM</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Sonstige">
-				<xs:annotation>
-					<xs:documentation>Falls andere bzw. ältere Versionen verwendet werden</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
+			<xs:pattern value="(10 20\d{2} ((GM)|(WHO))|Sonstige)"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="Melder_Typ">

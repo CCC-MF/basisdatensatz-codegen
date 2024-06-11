@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <AssemblyVersion>2.2.2</AssemblyVersion>
+        <AssemblyVersion>2.2.3</AssemblyVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Library</OutputType>
@@ -10,7 +10,7 @@
 
     <Target Name="GenerateFromXsd" BeforeTargets="Compile">
         <MakeDir Directories="$(ProjectDir)Basisdatensatz" />
-        <Exec Command="xsd $(ProjectDir)../schema/ADT_GEKID_v2.2.2.xsd /classes /outputdir:$(ProjectDir)Basisdatensatz" />
+        <Exec Command="xsd $(ProjectDir)../schema/ADT_GEKID_v2.2.3.xsd /classes /outputdir:$(ProjectDir)Basisdatensatz" />
     </Target>
 
 </Project>
