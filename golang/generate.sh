@@ -2,7 +2,7 @@
 
 type foo >/dev/null 2>&1 || {
   mkdir -p target >/dev/null
-  xgen -i "../schema/oBDS_v3.0.2.xsd" -o "target/basisdatensatz/obds" -p obds -l Go
+  xgen -i "../schema/ADT_GEKID_v2.2.2.xsd" -o "target/basisdatensatz/obds" -p obds -l Go
   exit 0
 }
 
