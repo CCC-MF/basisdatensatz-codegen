@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <AssemblyVersion>3.0.2</AssemblyVersion>
+        <AssemblyVersion>3.0.3</AssemblyVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Library</OutputType>
@@ -10,7 +10,7 @@
 
     <Target Name="GenerateFromXsd" BeforeTargets="Compile">
         <MakeDir Directories="$(ProjectDir)Basisdatensatz" />
-        <Exec Command="xsd $(ProjectDir)../schema/oBDS_v3.0.2.xsd /classes /namespace:Basisdatensatz.Obds /outputdir:$(ProjectDir)Basisdatensatz" />
+        <Exec Command="xsd $(ProjectDir)../schema/oBDS_v3.0.3.xsd /classes /namespace:Basisdatensatz.Obds /outputdir:$(ProjectDir)Basisdatensatz" />
     </Target>
 
 </Project>

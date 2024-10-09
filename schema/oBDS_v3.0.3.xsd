@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.basisdatensatz.de/oBDS/XML" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.basisdatensatz.de/oBDS/XML" targetNamespace="http://www.basisdatensatz.de/oBDS/XML" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.2 vom 17.10.2023">
+<?xml-stylesheet type="text/xsl" href="xs3p.xsl"?>
+<xs:schema xmlns="http://www.basisdatensatz.de/oBDS/XML" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.basisdatensatz.de/oBDS/XML" targetNamespace="http://www.basisdatensatz.de/oBDS/XML" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0.3 vom 04.09.2024">
 	<xs:element name="oBDS">
 		<xs:annotation>
 			<xs:documentation>Root element</xs:documentation>
@@ -94,6 +95,16 @@
 								- Ergänzung Diagnosesicherung 7.1-3 und 8 (§65c 2023/63/c1) </xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
+						<xs:enumeration value="3.0.3">
+							<xs:annotation>
+								<xs:documentation>
+								- Änderung der Annotation in der Diagnosesicherung für die Diagnose
+								- Änderung des Elements 'Bezeichnung' im Element 'Absender' von Datentyp 'A' auf 'B'
+								- Pathologie: Erweiterung des Elements 'Diagnosesicherung' um die Ausprägungen '7.1'-'7.3' und '8' (§65c 2023/63/c1) 
+								- Modul_DKKR: Erweiterung des Elements 'Einwilligung' um die Ausprägungen '6' und '7'
+								</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
@@ -160,7 +171,7 @@
 	</xs:simpleType>
 	<xs:complexType name="Absender_Typ">
 		<xs:sequence>
-			<xs:element name="Bezeichnung" type="Namenstring255_Typ" minOccurs="0"/>
+			<xs:element name="Bezeichnung" type="Adressstring255_Typ" minOccurs="0"/>
 			<xs:element name="Ansprechpartner" type="Namenstring255_Typ" minOccurs="0"/>
 			<xs:element name="Anschrift" type="Adressstring255_Typ" minOccurs="0"/>
 			<xs:element name="Telefon" type="Adressstring255_Typ" minOccurs="0"/>
@@ -1660,7 +1671,7 @@ Dafür ist statt einer Ausprägung das Freitextfeld Sonstige_Auspraegung vorgese
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="1">
 							<xs:annotation>
-								<xs:documentation>EW liegt von/vom Sorgeberechtigten vor</xs:documentation>
+								<xs:documentation>EW liegt von/vom Sorgeberechtigten vor; Veraltet, bitte stattdessen Ausprägung 5, 6, oder 7 verwenden</xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
 						<xs:enumeration value="2">
@@ -1676,6 +1687,16 @@ Dafür ist statt einer Ausprägung das Freitextfeld Sonstige_Auspraegung vorgese
 						<xs:enumeration value="5">
 							<xs:annotation>
 								<xs:documentation>EW liegt vom Patienten selbst vor</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation>EW des Sorgeberechtigten liegt vor</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="7">
+							<xs:annotation>
+								<xs:documentation>EW Patient und Sorgeberechtigte liegt vor</xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
 					</xs:restriction>
@@ -2138,7 +2159,6 @@ Dafür ist statt einer Ausprägung das Freitextfeld Sonstige_Auspraegung vorgese
 			<xs:element name="S" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
-					
 						Serumtumormarker 
 						SX = Werte der Serumtumormarker nicht verfügbar oder entsprechende Untersuchungen nicht vorgenommen 
 						S0 = Serumtumormarker innerhalb der normalen Grenzen 
@@ -2149,7 +2169,6 @@ Dafür ist statt einer Ausprägung das Freitextfeld Sonstige_Auspraegung vorgese
 						S3			&gt; 10 N		oder	&gt; 50000		oder	&gt; 10000
 						N = obere Grenze des Normalwertes 
 						(Quelle: TNM-Klassifikation, 8. Auflage 2020, S.252)
-					
 					</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -3821,17 +3840,17 @@ Zielgebietschlüssel nach oBDS 2014
 						</xs:enumeration>
 						<xs:enumeration value="6">
 							<xs:annotation>
-								<xs:documentation>Histologie einer Metastase.</xs:documentation>
+								<xs:documentation>Histologie Metastase (Ausprägung ist veraltet, besser 7.2 nutzen)</xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
 						<xs:enumeration value="7">
 							<xs:annotation>
-								<xs:documentation>Veraltet; Besser Verwendung von 7.1, 7.2 oder 7.3</xs:documentation>
+								<xs:documentation>Histologie Primärtumor (Ausprägung ist veraltet, besser 7.1 nutzen)</xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
 						<xs:enumeration value="7.1">
 							<xs:annotation>
-								<xs:documentation>Histologie des Primärtumors: Histologische Untersuchung von Gewebe des Primärtumors einschließlich aller Schnitttechniken und Knochenmarksbiopsien.</xs:documentation>
+								<xs:documentation>Histologie des Primärtumors: Histologische Untersuchung von Gewebe des Primärtumors</xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
 						<xs:enumeration value="7.2">
@@ -3934,12 +3953,32 @@ Zielgebietschlüssel nach oBDS 2014
 						</xs:enumeration>
 						<xs:enumeration value="6">
 							<xs:annotation>
-								<xs:documentation>Histologie einer Metastase.</xs:documentation>
+								<xs:documentation>Histologie Metastase (Ausprägung ist veraltet, besser 7.2 nutzen)</xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
 						<xs:enumeration value="7">
 							<xs:annotation>
-								<xs:documentation>Histologisch: Histologie des Primärtumors: Histologische Untersuchung von Gewebe des Primärtumors einschließlich aller Schnitttechniken und Knochenmarksbiopsien. Dies schließt Proben des Primärtumors aus Autopsien ein. Histologische Untersuchung des Gewebes aus einer Metastase, einschließlich bei Autopsie.</xs:documentation>
+								<xs:documentation>Histologie Primärtumor (Ausprägung ist veraltet, besser 7.1 nutzen)</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="7.1">
+							<xs:annotation>
+								<xs:documentation>Histologie des Primärtumors: Histologische Untersuchung von Gewebe des Primärtumors</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="7.2">
+							<xs:annotation>
+								<xs:documentation>Histologie Metastase: Histologische Untersuchung des Gewebes aus einer Metastase</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="7.3">
+							<xs:annotation>
+								<xs:documentation>Histologie der Autopsie: Histologische Untersuchung des Gewebes bei einer Autopsie</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="8">
+							<xs:annotation>
+								<xs:documentation>Zytogenetisch und/oder molekularer Test</xs:documentation>
 							</xs:annotation>
 						</xs:enumeration>
 						<xs:enumeration value="9">
@@ -4580,7 +4619,6 @@ Zielgebietschlüssel nach oBDS 2014
 			<xs:element name="Intention">
 				<xs:annotation>
 					<xs:documentation>
-						
 				Gibt an, mit welcher Intention die Strahlentherapie geplant wurde.
 				Prophylaktisch/Salvage kann als kurativ oder palliativ kodiert werden.
 				"lokal kurativ" gibt an, wenn das Therapiekonzept lediglich lokal kurativ ist, steht also zwischen Kurativ und Palliativ

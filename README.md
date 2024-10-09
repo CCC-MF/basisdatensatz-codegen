@@ -3,8 +3,8 @@
 Dieses Projekt bietet Codegenerierung für den einheitlichen onkologischen Basisdatensatz
 für JDK und .NET.
 
-Verwendet wird der einheitliche onkologische Basisdatensatz in Version 3.0.2,
-veröffentlicht am 17.10.2023.
+Verwendet wird der einheitliche onkologische Basisdatensatz in Version 3.0.3,
+veröffentlicht am 01.10.2024.
 
 Siehe auch: https://basisdatensatz.de/xml/
 
@@ -32,7 +32,7 @@ Im Unterverzeichnis `jdk` kann folgender Befehl ausgeführt werden:
 Hierdurch wird aus der Schemadatei Java-Quellcode im Paket
 `de.basisdatensatz.obds` erzeugt und compiliert.
 
-## Go
+## Go (Experimentell)
 
 Im Unterverzeichnis `golang` kann folgendes Bash-Script ausgeführt werden:
 
@@ -42,7 +42,7 @@ Im Unterverzeichnis `golang` kann folgendes Bash-Script ausgeführt werden:
 
 Dies erzeugt im neu erstellten Unterordner `target` eine Go-Datei mit generierten Structs.
 
-## Rust
+## Rust (Experimentell)
 
 Im Unterverzeichnis `rust` kann folgendes Bash-Script ausgeführt werden:
 
